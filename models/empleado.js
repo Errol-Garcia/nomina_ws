@@ -116,7 +116,7 @@ module.exports = sequelize => {
     EmpleadoModel.hasMany(models.sueldo_model, {
       foreignKey: 'idempleado'
     });
-    EmpleadoModel.hasOne(models.cuentaEmpleado_model, {
+    EmpleadoModel.hasOne(models.cuentaempleado_model, {
       foreignKey: 'idempleado'
     });
     EmpleadoModel.hasOne(models.nominaEmpleado_model, {

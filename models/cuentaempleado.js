@@ -8,7 +8,7 @@ module.exports = sequelize => {
       allowNull: false,
       defaultValue: null,
       comment: null,
-      primaryKey: false,
+      primaryKey: true,
       field: "id",
       autoIncrement: true
     },
@@ -48,13 +48,13 @@ module.exports = sequelize => {
     freezeTableName: true, 
     schema: 'public'
   };
-  const CuentaempleadoModel = sequelize.define("cuentaempleado_model", attributes, options);
+  const CuentaEmpleadoModel = sequelize.define("cuentaempleado_model", attributes, options);
 
-  CuentaempleadoModel.associate = function(models){
-    CuentaempleadoModel.belongsTo(models.cuenta_model, { 
+  CuentaEmpleadoModel.associate = function(models){
+    CuentaEmpleadoModel.belongsTo(models.cuenta_model, { 
       foreignKey: 'idcuenta' }); 
-    CuentaempleadoModel.belongsTo(models.empleado_model, { 
+    CuentaEmpleadoModel.belongsTo(models.empleado_model, { 
       foreignKey: 'idempleado' }); 
   };
-  return CuentaempleadoModel;
+  return CuentaEmpleadoModel;
 };

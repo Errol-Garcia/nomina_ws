@@ -64,7 +64,7 @@ module.exports = sequelize => {
   };
   const CuentaModel = sequelize.define("cuenta_model", attributes, options);
   CuentaModel.associate = function(models){
-    CuentaModel.hasOne(models.cuentaEmpleado_model, {
+    CuentaModel.hasOne(models.cuentaempleado_model, {
       foreignKey: 'idcuenta'
     });
   };
