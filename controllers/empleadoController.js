@@ -5,6 +5,54 @@ const sueldo = require("../models").sueldo_model;
 const nominaEmpleado = require("../models").nominaEmpleado_model;
 
 module.exports = {
+  /*getEmpleadoByCedula(req, res) {
+    const cedula= req.params.idcedula;
+    console.log(cedula);
+
+    return empleado
+        .findOne({
+          attributes: ['nombres','apellidos','telefono','sueldo'],
+          where:{cedula}})
+        .then((empleado) => {
+            console.log(empleado);
+            if (!empleado) {
+                return res.status(400).send({
+                    message: 'empleado Not Found',
+                });
+            }
+            return res.status(200).send(empleado);
+        })
+        .catch((error) =>
+            res.status(500).send({
+              message: 'Internal server error',
+              error: error.message,}
+            ));
+},*/
+async getEmpleadoByCedula(req, res) {
+  const cedula = req.params.idcedula;
+  console.log(cedula);
+  
+  try {
+      const foundEmpleado = await empleado.findOne({
+          attributes: ['nombres', 'apellidos', 'telefono', 'salario'],
+          where: { cedula } // Aquí corregí la estructura del objeto where
+      });
+
+      if (!foundEmpleado) {
+          return res.status(404).send({
+              message: 'Empleado Not Found',
+          });
+      }
+
+      return res.status(200).send(foundEmpleado);
+  } catch (error) {
+      console.error(error);
+      return res.status(500).send({
+          message: 'Internal Server Error',
+          error: error.message,
+      });
+  }
+},
     addEmpleado(req, res) {
         return empleado
         .create({
@@ -61,7 +109,7 @@ module.exports = {
 
       UpdateEmpleado(req,res){
         return empleado
-        .findByPk(req.params.id)
+        .findByPk(req.body.id)
         .then((empleado) => {
           if (!empleado) {
             return res.status(404).send({ message: "empleado Not Found" });

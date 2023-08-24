@@ -1,4 +1,5 @@
 const departamentoController = require('./departamentoController'); 
+const cargoController = require('./cargoController'); 
 const descuentoController = require('./descuentoController'); 
 const devengadoController = require('./devengadoController'); 
 const empleadoController = require('./empleadoController'); 
@@ -15,5 +16,6 @@ module.exports = {
     nominaEmpleadoController,
     rolController,
     sesionController,
-    sueldoController
+    sueldoController,
+    cargoController
 };
