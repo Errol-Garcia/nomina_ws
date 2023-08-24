@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "errol3148416719",
+    "database": "ej_pa",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "errol3148416719",
+    "database": "ej_pa",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "errol3148416719",
+    "database": "ej_pa",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
